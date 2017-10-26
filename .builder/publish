@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+fileName="sdklibs"
+file=${fileName}.zip
+host="http://write.image.uc.cn:8080/e/uaeext/NnY2R3YWJqdGFtc2h6eWdqMjF5ZHu?op=put&name="
+dir="&dir=libs"
+
+echo "打包文件: ---->"$file
+cd ./lib
+zip -rm ${file} .
+
+echo $fileName"发布到 ----> UAE"
+RES=$(curl -F files=@$file $host$fileName.needunziparchive$dir -i)
+
+echo $RES
+rm -rf $file

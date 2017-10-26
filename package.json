@@ -1,0 +1,56 @@
+{
+  "name": "sdklibs",
+  "version": "1.0.0",
+  "description": "JS-SDK微服务开发模式的公共函数库",
+  "main": "lib/sdklibs.js",
+  "dependencies": {
+    "babel-polyfill": "~6.26.0",
+    "babel-runtime": "~6.26.0",
+    "object-assign": "~4.1.1",
+    "promise": "~8.0.1",
+    "whatwg-fetch": "~2.0.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-es2015-for-of": "^6.23.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-es2015-parameters": "^6.24.1",
+    "babel-plugin-transform-es2015-spread": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chalk": "^2.3.0",
+    "cross-env": "^5.1.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
+  },
+  "scripts": {
+    "clean": "rimraf -rf lib",
+    "lint": "eslint --ext .js src --fix",
+    "dev": "webpack-dev-server --config .builder/webpack.dev.config.js",
+    "build": "cross-env NODE_ENV=production node .builder/build.js",
+    "publish": "sh .builder/publish",
+    "prepublish": "npm run clean && npm run build",
+    "push": "sh push",
+    "prepush": "npm run clean && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.alibaba-inc.com:uctoutiao-fe/xiss-article-sdk.git"
+  },
+  "author": "jingui.pjg <jingui.pjg@alibaba-inc.com>",
+  "license": "ISC"
+}

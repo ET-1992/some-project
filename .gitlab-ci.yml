@@ -1,0 +1,25 @@
+before_script:
+  - 'source $NVM_DIR/nvm.sh'
+  - 'NODE_VERSION=6.10'
+  - 'nvm install $NODE_VERSION && nvm alias default $NODE_VERSION'
+  - 'npm install --registry=http://registry.npm.alibaba-inc.com'
+
+# release测试分支
+scrat_build::release:
+  script:
+    - 'npm run publish -- -e release -f'
+  only:
+    - release
+
+  tags:
+    - docker
+
+# 打tag上线生产
+scrat_build::tag:
+  script:
+    - 'npm run publish -- -e master -f'
+  only:
+    - master
+
+  tags:
+    - docker

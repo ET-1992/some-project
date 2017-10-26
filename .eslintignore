@@ -1,0 +1,5 @@
+/node_modules
+/dist
+
+src/libs/stat.js
+src/libs/bodymovin.js

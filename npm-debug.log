@@ -1,0 +1,46 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/uc/.nvm/versions/node/v6.11.1/bin/node',
+1 verbose cli   '/Users/uc/.nvm/versions/node/v6.11.1/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'push' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.1
+4 verbose run-script [ 'prepush', 'push', 'postpush' ]
+5 info lifecycle sdklibs@1.0.0~prepush: sdklibs@1.0.0
+6 verbose lifecycle sdklibs@1.0.0~prepush: unsafe-perm in lifecycle true
+7 verbose lifecycle sdklibs@1.0.0~prepush: PATH: /Users/uc/.nvm/versions/node/v6.11.1/lib/node_modules/npm/bin/node-gyp-bin:/Users/uc/www/sdk-dev/sdk-libs/node_modules/.bin:/Users/uc/.nvm/versions/node/v6.11.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+8 verbose lifecycle sdklibs@1.0.0~prepush: CWD: /Users/uc/www/sdk-dev/sdk-libs
+9 silly lifecycle sdklibs@1.0.0~prepush: Args: [ '-c', 'npm run clean && npm run build' ]
+10 silly lifecycle sdklibs@1.0.0~prepush: Returned: code: 1  signal: null
+11 info lifecycle sdklibs@1.0.0~prepush: Failed to exec prepush script
+12 verbose stack Error: sdklibs@1.0.0 prepush: `npm run clean && npm run build`
+12 verbose stack Exit status 1
+12 verbose stack     at EventEmitter.<anonymous> (/Users/uc/.nvm/versions/node/v6.11.1/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
+12 verbose stack     at emitTwo (events.js:106:13)
+12 verbose stack     at EventEmitter.emit (events.js:191:7)
+12 verbose stack     at ChildProcess.<anonymous> (/Users/uc/.nvm/versions/node/v6.11.1/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+12 verbose stack     at emitTwo (events.js:106:13)
+12 verbose stack     at ChildProcess.emit (events.js:191:7)
+12 verbose stack     at maybeClose (internal/child_process.js:891:16)
+12 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+13 verbose pkgid sdklibs@1.0.0
+14 verbose cwd /Users/uc/www/sdk-dev/sdk-libs
+15 error Darwin 16.0.0
+16 error argv "/Users/uc/.nvm/versions/node/v6.11.1/bin/node" "/Users/uc/.nvm/versions/node/v6.11.1/bin/npm" "run" "push"
+17 error node v6.11.1
+18 error npm  v3.10.10
+19 error code ELIFECYCLE
+20 error sdklibs@1.0.0 prepush: `npm run clean && npm run build`
+20 error Exit status 1
+21 error Failed at the sdklibs@1.0.0 prepush script 'npm run clean && npm run build'.
+21 error Make sure you have the latest version of node.js and npm installed.
+21 error If you do, this is most likely a problem with the sdklibs package,
+21 error not with npm itself.
+21 error Tell the author that this fails on your system:
+21 error     npm run clean && npm run build
+21 error You can get information on how to open an issue for this project with:
+21 error     npm bugs sdklibs
+21 error Or if that isn't available, you can get their info via:
+21 error     npm owner ls sdklibs
+21 error There is likely additional logging output above.
+22 verbose exit [ 1, true ]

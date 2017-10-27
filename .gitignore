@@ -1,0 +1,7 @@
+node_modules
+/*.iml
+/.idea
+/dist
+.DS_Store
+*.log
+/*.zip

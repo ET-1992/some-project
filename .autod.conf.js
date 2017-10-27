@@ -11,17 +11,12 @@ module.exports = {
     // 'theme.config.js'
   ],
   dep: [
-    'babel-runtime',
     'promise',
     'whatwg-fetch',
-    'object-assign',
-    'babel-polyfill'
   ],
   devdep: [
-    'autoprefixer',
     'babel-eslint',
     'babel-loader',
-    'babel-polyfill',
     'babel-plugin-transform-runtime',
     'babel-plugin-transform-async-to-generator',
     'babel-plugin-transform-decorators-legacy',

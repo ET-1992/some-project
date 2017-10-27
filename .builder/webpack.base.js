@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    'sdklibs': [require.resolve('./polyfills'), './src/index.js']
+    'sdklibs': './src/index.js'
   },
   output: {
     path: path.resolve(__dirname, '../lib'),
@@ -26,3 +26,5 @@ module.exports = {
   plugins: [
   ]
 };
+
+console.log(module.exports.entry);

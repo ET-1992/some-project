@@ -11,8 +11,8 @@ module.exports = {
     // 'theme.config.js'
   ],
   dep: [
-    'promise',
-    'whatwg-fetch',
+    'core-js',
+    'whatwg-fetch'
   ],
   devdep: [
     'babel-eslint',

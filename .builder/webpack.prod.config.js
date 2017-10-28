@@ -1,5 +1,5 @@
-const webpackConfig = require('./webpack.base.js');
 const webpack = require('webpack');
+const webpackConfig = require('./webpack.base.js');
 const pkg = require('../package.json');
 
 const plugins = [

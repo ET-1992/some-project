@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+html, body {
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #fff;
+  font-size: 16px;
+  color: #333;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html, body, span, div, p, a, table, tbody, td, h1, h2, h3, img, form, font, strong, b, i, dl, dt, dd, ol, ul, li, dl, dd, dt, iframe, label, blockquote, input, em, dfn, button {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-style: normal;
+}
+
+img {
+  vertical-align: middle;
+  border: none;
+}
+
+header, nav, footer, section, article, aside {
+  display: block;
+}
+
+button, input, select, textarea {
+  font-size: 100%;
+  font-family: inherit;
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+.hide {
+  display: none;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  color: #333;
+}
+
+/* 清理浮动 */
+.clear {
+  zoom: 1;
+}
+
+.clear:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+#main{
+  /*width: 100%;*/
+  padding: 10px;;
+}
+
+.header {
+
+}
+
+.header h1{
+  line-height: 45px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.nav{
+  display: flex;
+}
+
+.nav a {
+  flex: 1;
+  line-height: 40px;
+  font-size: 16px;
+  color: #aaa;
+  text-align: center;
+  background: #2980B9;
+}
+
+.nav a.on {
+  background: #3498DB;
+  color: #fff;
+  font-weight: bold;
+}
+
+.wrapper{
+  -moz-column-count:2; /* Firefox */
+  -webkit-column-count:2; /* Safari 和 Chrome */
+  column-count:2;
+  -moz-column-gap: 10px;
+  -webkit-column-gap: 10px;
+  column-gap: 10px;
+}
+.small .wrapper {
+  -moz-column-count: 1; /* Firefox */
+  -webkit-column-count: 1; /* Safari 和 Chrome */
+  column-count: 1;
+}
+.big .wrapper {
+  -moz-column-count: 3; /* Firefox */
+  -webkit-column-count: 3; /* Safari 和 Chrome */
+  column-count: 3;
+}
+.container{
+  padding: 10px;
+  margin: 0 0 10px 0;
+  -moz-page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid;
+  border: 1px solid #000;
+}
+.container .hd {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 26px;
+}
+.container .bd {
+  padding-left: 5px;
+}

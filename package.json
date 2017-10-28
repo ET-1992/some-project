@@ -1,11 +1,10 @@
 {
   "name": "sdklibs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JS-SDK微服务开发模式的公共函数库",
-  "main": "lib/sdklibs.js",
+  "main": "lib/sdklibs.shim.js",
   "dependencies": {
-    "object-assign": "~4.1.1",
-    "promise": "~8.0.1",
+    "core-js": "~2.5.1",
     "whatwg-fetch": "~2.0.3"
   },
   "devDependencies": {
@@ -27,8 +26,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "chalk": "^2.3.0",
-    "cross-env": "^5.1.0",
-    "eslint": "^4.9.0",
+    "cross-env": "^5.1.1",
+    "eslint": "^4.10.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.8.0",
@@ -39,7 +38,7 @@
   "scripts": {
     "clean": "rimraf -rf lib",
     "lint": "eslint --ext .js src --fix",
-    "dev": "webpack-dev-server --config .builder/webpack.prod.config.js",
+    "dev": "webpack-dev-server --config .builder/webpack.dev.config.js",
     "build": "cross-env NODE_ENV=production node .builder/build.js",
     "publish": "sh .builder/publish",
     "prepublish": "npm run clean && npm run build",

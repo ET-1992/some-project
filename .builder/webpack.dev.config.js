@@ -1,5 +1,27 @@
-const webpackConfig = require('./webpack.base.js');
+const path = require('path');
+const os = require('os');
 const webpack = require('webpack');
+const webpackConfig = require('./webpack.base.js');
+
+
+const networkInterfaces = os.networkInterfaces();
+function getIPAddress() {
+  const interfaces = os.networkInterfaces();
+  for (const devName in interfaces) {
+    const iface = interfaces[devName];
+    for (let i = 0; i < iface.length; i++) {
+      const alias = iface[i];
+      if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+        return alias.address;
+      }
+    }
+  }
+
+  return '127.0.0.1';
+}
+
+webpackConfig.entry['sdklibs.shim'] = path.resolve(__dirname, '../src/sdklibs.shim.js');
+webpackConfig.entry.apitest = path.resolve(__dirname, '../src/api.test.js');
 
 const plugins = [
   new webpack.HotModuleReplacementPlugin()
@@ -7,7 +29,7 @@ const plugins = [
 webpackConfig.plugins = webpackConfig.plugins.concat(plugins);
 webpackConfig.devtool = 'cheap-module-source-map';
 webpackConfig.devServer = {
-  host: '100.84.248.189',
+  host: getIPAddress(),
   contentBase: './',
   port: 9090
 }

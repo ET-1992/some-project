@@ -36,6 +36,8 @@ module.exports = {
     'eslint-loader',
     'eslint-config-airbnb-base',
     'eslint-plugin-import',
+    'style-loader',
+    'css-loader',
     'webpack',
     'webpack-dev-server',
     'rimraf'

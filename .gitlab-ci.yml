@@ -7,7 +7,7 @@ before_script:
 # release测试分支
 scrat_build::release:
   script:
-    - 'npm run publish -- -e release -f'
+    - 'npm run publish'
   only:
     - release
 
@@ -17,7 +17,7 @@ scrat_build::release:
 # 打tag上线生产
 scrat_build::tag:
   script:
-    - 'npm run publish -- -e master -f'
+    - 'npm run publish'
   only:
     - master
 

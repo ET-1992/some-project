@@ -3,8 +3,6 @@ const os = require('os');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.base.js');
 
-
-const networkInterfaces = os.networkInterfaces();
 function getIPAddress() {
   const interfaces = os.networkInterfaces();
   for (const devName in interfaces) {

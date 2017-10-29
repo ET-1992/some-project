@@ -1,3 +1,4 @@
+import './css/rest.css';
 import cookie from './libs/cookie';
 import domReady from './libs/domReady';
 import envi from './libs/envi';

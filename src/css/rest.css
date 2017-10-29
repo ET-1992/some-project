@@ -1,0 +1,71 @@
+/**
+ * 这是一个全局css
+ * 不要修改此文件，增加全局的css样式可能会影响到其他项目
+ * 每个项目请遵照css module的规则书写样式
+ */
+
+html, body {
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  font-size: 16px;
+  color: #333;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html, body, span, div, p, a, table, tbody, td, h1, h2, h3, img, form, font, strong, b, i, dl, dt, dd, ol, ul, li, dl, dd, dt, iframe, label, blockquote, input, em, dfn, button {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-style: normal;
+}
+
+img {
+  vertical-align: middle;
+  border: none;
+}
+
+nav, footer, section, article, aside {
+  display: block;
+}
+
+button, input, select, textarea {
+  font-size: 100%;
+  font-family: inherit;
+}
+
+
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  color: #666;
+}
+
+/* 清理浮动 */
+.clear {
+  zoom: 1;
+}
+.clear:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+/* 全局的隐藏 */
+
+.hide,
+.fn-hide {
+  display: none !important;
+}
+
+/**
+ * 不要修改此文件，增加全局的css样式可能会影响到其他项目
+ */

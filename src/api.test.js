@@ -209,25 +209,31 @@ const tpl = {
         <div class="bd">${html}</div>
       </div>
     `;
+  },
+  header(curr = 'has') {
+    const has = '<a class="on" href="./polyfill.html">has polyfill</a><a href="./nopolyfill.html">no polyfill</a>';
+    const no = '<a href="./polyfill.html">has polyfill</a><a class="on" href="./nopolyfill.html">no polyfill</a>';
+    return `
+    <div class="header">
+      <h1>ES6 Extend API Test</h1>
+      <div class="nav">
+        ${curr === 'has' ? has : no}
+      </div>
+    </div>
+    `;
   }
 };
-const getOwnPropertyNames = Object.getOwnPropertyNames;
+
+const hasOwnProperty = Object.prototype.hasOwnProperty;
 function isSuport(api, method) {
-  let prototypes = [];
-  switch (method) {
-    case 'window': {
-      return window[api] !== undefined;
-    }
-    default: {
-      if (window[method]) {
-        prototypes = getOwnPropertyNames(window[method]);
-        if (window[method] && window[method].prototype) {
-          prototypes = prototypes.concat(getOwnPropertyNames(window[method].prototype));
-        }
-      }
-      return prototypes.indexOf(api) !== -1;
+  let hasOwn = false;
+  if (window[method]) {
+    hasOwn = hasOwnProperty.call(window[method], api);
+    if (!hasOwn && window[method] && window[method].prototype) {
+      hasOwn = hasOwnProperty.call(window[method].prototype, api);
     }
   }
+  return hasOwn;
 }
 
 function setSuportStatusToHtml(obj) {
@@ -257,8 +263,9 @@ function renderMethods() {
 }
 
 function render() {
-  $main.innerHTML = `<div class="wrapper">${[renderBuiltins(), renderMethods()].join('')}</div>`;
+  const pathname = window.location.pathname.split('/').pop();
+  const header = pathname === 'polyfill.html' ? tpl.header('has') : tpl.header('no');
+  $main.innerHTML = `${header}<div class="wrapper">${[renderBuiltins(), renderMethods()].join('')}</div>`;
 }
-
 
 render();

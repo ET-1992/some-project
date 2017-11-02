@@ -18,7 +18,6 @@ function getIPAddress() {
   return '127.0.0.1';
 }
 
-webpackConfig.entry['sdklibs.shim'] = path.resolve(__dirname, '../src/sdklibs.shim.js');
 webpackConfig.entry.apitest = path.resolve(__dirname, '../src/api.test.js');
 
 const plugins = [

@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.base.js');
 const pkg = require('../package.json');
@@ -20,6 +21,7 @@ const plugins = [
     }
   })
 ];
+webpackConfig.entry.apitest = path.resolve(__dirname, '../src/api.test.js');
 webpackConfig.output.filename = `[name].${pkg.version}.js`;
 webpackConfig.plugins = webpackConfig.plugins.concat(plugins);
 webpackConfig.devtool = false;

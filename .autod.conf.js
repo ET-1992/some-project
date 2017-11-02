@@ -12,7 +12,8 @@ module.exports = {
   ],
   dep: [
     'core-js',
-    'whatwg-fetch'
+    'whatwg-fetch',
+    'babel-runtime'
   ],
   devdep: [
     'babel-eslint',

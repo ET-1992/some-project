@@ -75,7 +75,7 @@ npm run publish
 ```html
 <script src="//image.uc.cn/e/uaeext/m;1y/;libs/polyfills.1.0.3.js;libs/uc-jsdk.js;libs/uc-share-sdk.js;libs/sdklibs.1.0.3.js" crossorigin="anonymous"></script>
 <!-- // or -->
-<script src="//image.uc.cn/e/uaeext/m;1y/libs/;polyfills.1.0.3.js;uc-jsdk.js;uc-share-sdk.js;sdklibs.1.0.3.js" crossorigin="anonymous"></script>
+<script src="//image.uc.cn/e/uaeext/m;1y/libs/;polyfills.1.0.3.js;uc-jsdk.js;uc-share-sdk.js;sdklibs.1.0.3.js;loader.v21.min.js" crossorigin="anonymous"></script>
 ```
 
 **总之，在开发和生产阶段，同一个页面只需要引入一份本基础类库（包含polyfills和css样式）之后，在独立的JSSDK中则不再需要重复引用，避免不必要的冗余。**

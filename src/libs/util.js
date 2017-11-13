@@ -227,7 +227,7 @@ const util = {
     const href = (url || win.location.href).split('#')[0];
     const params = (href.split('?')[1] || '').split('&');
     params.forEach(param => {
-      const arr = param.split('=');
+      const arr = param.replace('=', '&').split('&');
       if (arr[0]) result[arr[0]] = arr[1] || '';
     });
     return result;

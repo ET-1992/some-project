@@ -102,37 +102,37 @@ const sendStat = (options) => {
 const Stat = {
   init: (options) => {
     Object.assign(defaultOptions, {
-      ...options,
       pg: getPage() || '',
       host: location.host,
       aid: getQueryString('aid') || getQueryString('sm_article_id'),
       from: getQueryString('app'),
-      uc_param_str: getQueryString('uc_param_str')
+      uc_param_str: getQueryString('uc_param_str'),
+      ...options
     });
   },
   pageview: (options) => {
     const opt = Object.assign({
-      ...options,
       lt: 'xiss-pageview',
-      _t: +(new Date())
+      _t: +(new Date()),
+      ...options
     }, defaultOptions);
 
     sendStat(opt);
   },
   event: (options) => {
     const opt = Object.assign({
-      ...options,
       lt: 'xiss-event',
-      _t: +(new Date())
+      _t: +(new Date()),
+      ...options
     }, defaultOptions);
 
     sendStat(opt);
   },
   error: (options) => {
     const opt = Object.assign({
-      ...options,
       lt: 'xiss-error',
-      _t: +(new Date())
+      _t: +(new Date()),
+      ...options
     }, defaultOptions);
 
     sendStat(opt);

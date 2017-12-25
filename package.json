@@ -1,6 +1,6 @@
 {
   "name": "sdklibs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "JS-SDK微服务开发模式的公共函数库",
   "main": "lib/sdklibs.shim.js",
   "dependencies": {

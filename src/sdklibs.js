@@ -9,9 +9,10 @@ import uca from './libs/uca';
 import util from './libs/util';
 import version from './libs/version';
 import md5 from './libs/md5';
+import CustomEvent from './libs/Event';
 
 const libs = {
-  cookie, domReady, envi, lazyload, md5, stat, storage, uca, util, version
+  cookie, domReady, envi, lazyload, md5, stat, storage, uca, util, version, CustomEvent
 };
 
 window.__SDKLIB__ = libs;

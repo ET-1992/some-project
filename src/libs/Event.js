@@ -22,9 +22,9 @@ class CustomEvent {
   async execute(eventName, ev = {}) {
     if (this.events[eventName]) {
       const e = {
-        stopPropagation: false,
-        data: ev
-      }
+        'stopPropagation': false,
+        'data': ev
+      };
       this.events[eventName].some(async (fun, ind) => {
         const funPro = this.funProperty[eventName][ind];
         if (funPro.async) {

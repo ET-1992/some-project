@@ -18,26 +18,10 @@ function getQueryString(name) {
 function getPage(_browser) {
   var page;
   var pathName = window.location.pathname;
-  if (!_browser.uc && getQueryString('pagetype') === 'share') {
-    page = 'share';
-  } else if (pathName.indexOf('/news.html') > -1 || pathName.indexOf('webview/news') > -1 || pathName.indexOf('webview/article') > -1) {
-    page = 'article';
-  } else if (pathName.indexOf('/webview/video') > -1) {
-    page = 'video';
-  } else if (pathName.indexOf('/xissAllComments') > -1) {
-    page = 'comments';
-  } else if (pathName.indexOf('/reply.html') > -1) {
-    page = 'reply';
-  } else if (pathName.indexOf('/special.html') > -1) {
-    page = 'special';
-  } else if (pathName.indexOf('/comment-detail') > -1) {
-    page = 'detail';
-  } else if (pathName.indexOf('/my-comments') > -1) {
-    page = 'my_comments';
-  } else if (pathName.indexOf('/search-result') > -1) {
-    page = 'search-result';
+  if (pathName.indexOf('/webview/video') > -1) {
+    page = 'video'
   } else {
-    page = 'third_party';
+    page = 'article'
   }
   return page;
 }

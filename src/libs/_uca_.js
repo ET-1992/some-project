@@ -194,4 +194,4 @@ if (!Object.keys) {
   }());
 }
 
-module.exports = _uca_;
+export default _uca_;

@@ -1,21 +1,20 @@
 // 喜刷刷页端统一打点，目前统一了分享，点赞，举报，推荐，标签
 // 涉及范围只在 定制页和转码页 没有分享页  打点接口统一走info
 /*eslint-disable*/
-
 function setUrlParams(parmas) {
   return Object.keys(parmas).reduce((sum, value) => {
-    return `${sum}&${value}=${parmas[value]}`;
+    return `${sum}&${value}=${encodeURIComponent(parmas[value] || '')}`;
   }, '');
 }
 
 function getQueryString(name) {
-    const reg = new RegExp(`(\\?|^|&|#)${name}=([^&|^#]*)(&|$|#)`, 'i');
-    const r = window.location.href.match(reg);
-    if (r != null) {return decodeURIComponent(r[2]);}
-    return '';
-  }
+  const reg = new RegExp(`(\\?|^|&|#)${name}=([^&|^#]*)(&|$|#)`, 'i');
+  const r = window.location.href.match(reg);
+  if (r != null) {return decodeURIComponent(r[2]);}
+  return '';
+}
 
-function getPage(_browser) {
+function getPage() {
   var page;
   var pathName = window.location.pathname;
   if (pathName.indexOf('/webview/video') > -1) {
@@ -31,9 +30,11 @@ function getPageFrom() {
   var pageFrom,
     host = window.location.host;
 
-    if (host.indexOf('uczzd.cn') > -1) {
+  var xissDomainArr = ['uczzd.cn', 'sm.cn'];
+  var wmDomainArr = ['mparticle.uc.cn', 'mp.uc.cn'];
+    if (xissDomainArr.indexOf(host) > -1) {
       pageFrom = 'xiss'
-    } else if (host.indexOf('mp.uc.cn') > -1) {
+    } else if (wmDomainArr.indexOf(host) > -1) {
       pageFrom = 'zmt'
     } else {
       pageFrom = 'customize'
@@ -42,7 +43,7 @@ function getPageFrom() {
     return pageFrom;
 }
 
-var _browser = (function getBrowserInfo() {
+var _browser = (function getBrowserInfo(veStr) {
   var _browser = {},
     ua = navigator.userAgent,
     webkit = ua.match(/WebKit\/([\d.]+)/),
@@ -64,6 +65,11 @@ var _browser = (function getBrowserInfo() {
   _browser.ipad = false;
   _browser.iphone = false;
 
+  if (veStr) {
+    _browser.version = veStr;
+  } else if (uc && ucversion) {
+    _browser.version = ucversion[1];
+  }
 
   _browser.ucNews = !!/UCNewsApp/gi.test(ua);
   _browser.uc = !!uc && !_browser.ucNews;
@@ -82,24 +88,26 @@ var _browser = (function getBrowserInfo() {
   return _browser;
 })();
 
-
-export default function _uca_(_params = {}) {
+function _uca_(_params = {}) {
   var data = window.xissJsonData || {};
+  var pageFrom = getPageFrom();
+  var aid = pageFrom === 'customize' ? getQueryString('sm_article_id') : getQueryString('aid');
+
   var initParams = {
     title: data.title,
     item_type: data.item_type,
     ch_id: getQueryString('cid') || data.cid,
     reco_id: getQueryString('recoid') || data.recoid,
-    item_id: getQueryString('aid') || data.id,
+    item_id: aid || data.id,
     app: getQueryString('app'),
     uc: _browser.uc ? 1 : 0,
     fr: _browser.os,
-    page: getPage(_browser),
+    page: getPage(),
     _: +new Date(),
     et: 'iflow-article',
-    content: JSON.stringify([{aid: data.id}]),
-    uc_param_str: 'dnnivebichfrmintnwcpgieiwidsudpf',
-    page_form: getPageFrom(),
+    content: JSON.stringify([{aid: aid}]),
+    uc_param_str: 'dnnivebichfrmintnwcpgieiwidsudpfsv',
+    page_form: pageFrom,
     host: window.location.host
   };
 
@@ -114,12 +122,6 @@ export default function _uca_(_params = {}) {
     image.src = src;
   }
 }
-
-// // pv统计
-// _uca_({
-//   action: 'visit',
-//   region: 'view'
-// })
 
 // 兼容Object.assign
 if (typeof Object.assign != 'function') {
@@ -191,3 +193,5 @@ if (!Object.keys) {
     };
   }());
 }
+
+module.exports = _uca_;

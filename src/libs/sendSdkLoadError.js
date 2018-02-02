@@ -16,13 +16,16 @@ export default function sendSdkLoadError({
   sdk_name,
   error_info
 }) {
+  const aid = win.getQueryString('app') || '';
   const params = {
     app: win.getQueryString('app') || '',
+    zzd_from: win.getQueryString('zzd_from') || win.getQueryString('app') || '',
     uc: isuc ? 1 : 0,
     page_name,
     sdk_name,
     error_info,
     _: +new Date(),
+    content: [JSON.stringify({ aid })],
     et: 'sdk-load-error',
     uc_param_str: 'dnnivebichfrmintnwcpgieiwidsudpf'
   };

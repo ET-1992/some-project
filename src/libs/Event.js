@@ -21,19 +21,22 @@ class CustomEvent {
   }
   async execute(eventName, ev = {}) {
     if (this.events[eventName]) {
-      const e = {
-        'stopPropagation': false,
-        'data': ev
+      const dat = {
+        'data': ev,
+        'stopPropagation': false
       };
-      this.events[eventName].some(async (fun, ind) => {
+      for (let ind = 0; ind < this.events[eventName].length; ind++) {
         const funPro = this.funProperty[eventName][ind];
+        const fun = this.events[eventName][ind];
         if (funPro.async) {
-          await fun(e);
+          await fun(dat); // eslint-disable-line
         } else {
-          fun(e);
+          fun(dat);
         }
-        return e.stopPropagation;
-      });
+        if (dat.stopPropagation) {
+          return;
+        }
+      }
     }
   }
   /**
@@ -50,7 +53,7 @@ class CustomEvent {
       this.funProperty[eventName].unshift({ 'async': async });
     }
   }
-  [removeEventListener](constomEvent, eventName, fun) {
+  [removeEventListener](eventName, fun) {
     if (this.events[eventName]) {
       const ind = this.events[eventName].indexOf(fun);
       if (ind > -1) {

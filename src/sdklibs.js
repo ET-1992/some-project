@@ -12,9 +12,10 @@ import md5 from './libs/md5';
 import CustomEvent from './libs/Event';
 import _uca_ from './libs/_uca_';
 import sendSdkLoadError from './libs/sendSdkLoadError';
+import ucsdkloaderLog from './libs/sdklog';
 
 const libs = {
-  cookie, domReady, envi, lazyload, md5, stat, storage, uca, util, version, CustomEvent, _uca_, sendSdkLoadError
+  cookie, domReady, envi, lazyload, md5, stat, storage, uca, util, version, CustomEvent, _uca_, sendSdkLoadError, ucsdkloaderLog
 };
 
 window.__SDKLIB__ = libs;
